@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Love 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffb6c1, #ffe4e1);
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 50px;
+      text-shadow: 2px 2px #ff69b4;
+    }
+
+    .photo {
+      margin-top: 30px;
+    }
+
+    .photo img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #fff;
+      border: 5px solid #fff;
+    }
+
+    .message {
+      max-width: 600px;
+      margin: 40px auto;
+      font-size: 1.5em;
+      background-color: rgba(255, 182, 193, 0.3);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff69b4;
+      animation: float 6s infinite ease-in;
+      font-size: 24px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+
+    /* Play button styles */
+    #play-button {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 25px;
+      font-size: 16px;
+      font-family: 'Pacifico', cursive;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 10;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday, My Love! 🎂💖</h1>
+
+  <div class="photo">
+    <img src="images/IMG-20250212-WA0001.jpg" alt="My Love">
+  </div>
+
+  <div class="message">
+    Today is all about you, my sunshine ☀️<br><br>
+    Every day with you feels like a dream come true. Thank you for your love, your smile, and the light you bring into my life. You deserve the world, and I promise to do my best to give it to you. 💕<br><br>
+    Happy Birthday, my beautiful angel. I love you endlessly. 💘
+  </div>
+
+  <!-- Play music button -->
+  <button id="play-button" onclick="playMusic()">🎶 Guess this song before play</button>
+
+  <!-- Audio element without autoplay -->
+  <audio id="bg-music" loop>
+    <source src="musics/Mr-Eazi-Skintight-Ft-Efya.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    // Floating hearts animation
+    const heartsContainer = document.getElementById("hearts");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.innerText = "💖";
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+
+    // Play music function
+    function playMusic() {
+      const music = document.getElementById("bg-music");
+      music.play();
+      document.getElementById("play-button").style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
+
